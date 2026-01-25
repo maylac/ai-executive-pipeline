@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Executive Pipeline
 
-## Getting Started
+An AI-powered application that simulates a **Board Meeting** with 5 legendary CEOs (Masayoshi Son, Peter Thiel, Steve Jobs, Jeff Bezos, Warren Buffett) to refine your business ideas.
 
-First, run the development server:
+<img width="1684" alt="Screenshot 2025-01-25 at 10 09 00" src="https://github.com/user-attachments/assets/b8e05e46-1549-4115-9af2-16e6d32845c4" />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- **5-Stage Pipeline**: Transforms a seed idea into a full business strategy.
+- **Real-time Streaming**: Watch each agent "speak" and generate markdown content live.
+- **Premium UI**: Dark mode, glassmorphism, and smooth animations.
+- **Client-side Logic**: Simple chain execution for immediate feedback.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js 18+ installed.
+- An **OpenAI API Key** (or compatible) with access to GPT-4o.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/ai-executive-pipeline.git
+    cd ai-executive-pipeline
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2.  Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3.  Run the development server:
+    ```bash
+    npm run dev
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4.  Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1.  **Configure API Key**:
+    - Click the **Settings** icon (gear) in the bottom left corner.
+    - Enter your OpenAI API Key. It is stored securely in your browser's local state and not sent to any server other than OpenAI's API via the proxy.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2.  **Start a Meeting**:
+    - Enter your raw business idea in the text area (e.g., "A smart mirror that teaches you karate").
+    - Click **Start Board Meeting**.
+
+3.  **Review the Output**:
+    - The pipeline will run sequentially.
+    - **Masayoshi Son** creates the 300-year vision.
+    - **Peter Thiel** identifies the contrarian monopoly strategy.
+    - **Steve Jobs** designs the user experience.
+    - **Jeff Bezos** creates the execution plan.
+    - **Warren Buffett** provides the final investment decision.
+
+## Tech Stack
+- **Framework**: Next.js 14+ (App Router)
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+- **Markdown**: react-markdown + @tailwindcss/typography
