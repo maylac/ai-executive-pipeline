@@ -1,66 +1,66 @@
 # AI Executive Pipeline
 
-An AI-powered application that simulates a **Board Meeting** with 5 legendary CEOs (Masayoshi Son, Peter Thiel, Steve Jobs, Jeff Bezos, Warren Buffett) to refine your business ideas.
+5人の伝説的CEO（孫正義、ピーター・ティール、スティーブ・ジョブズ、ジェフ・ベゾス、ウォーレン・バフェット）との**取締役会**をシミュレートし、ビジネスアイデアを洗練させるAI搭載アプリケーションです。
 
 <img width="1684" alt="Screenshot 2025-01-25 at 10 09 00" src="https://github.com/user-attachments/assets/b8e05e46-1549-4115-9af2-16e6d32845c4" />
 
-## Features
-- **5-Stage Pipeline**: Transforms a seed idea into a full business strategy.
-- **Real-time Streaming**: Watch each agent "speak" and generate markdown content live.
-- **Premium UI**: Dark mode, glassmorphism, and smooth animations.
-- **Client-side Logic**: Simple chain execution for immediate feedback.
+## 特徴
+- **5段階のパイプライン**: シードアイデアを完全なビジネス戦略に変革します。
+- **リアルタイムストリーミング**: 各エージェントが「発言」し、Markdownコンテンツをライブ生成する様子を観察できます。
+- **プレミアムUI**: ダークモード、グラスモーフィズム、スムーズなアニメーションを採用。
+- **クライアントサイドロジック**: 即時フィードバックのためのシンプルなチェーン実行。
 
-## Setup Instructions
+## セットアップ手順
 
-### Prerequisites
-- Node.js 18+ installed.
-- An **OpenAI API Key** (or compatible) with access to GPT-4o.
+### 前提条件
+- Node.js 18以上がインストールされていること。
+- GPT-4oにアクセス可能な**OpenAI APIキー**（または互換性のあるキー）。
 
-### Installation
+### インストール
 
-1.  Clone the repository:
+1.  リポジトリをクローンします:
     ```bash
     git clone https://github.com/your-username/ai-executive-pipeline.git
     cd ai-executive-pipeline
     ```
 
-2.  Install dependencies:
+2.  依存関係をインストールします:
     ```bash
     npm install
-    # or
+    # または
     yarn install
-    # or
+    # または
     pnpm install
     ```
 
-3.  Run the development server:
+3.  開発サーバーを起動します:
     ```bash
     npm run dev
     ```
 
-4.  Open [http://localhost:3000](http://localhost:3000) with your browser.
+4.  ブラウザで [http://localhost:3000](http://localhost:3000) を開きます。
 
-## Usage
+## 使い方
 
-1.  **Configure API Key**:
-    - Click the **Settings** icon (gear) in the bottom left corner.
-    - Enter your OpenAI API Key. It is stored securely in your browser's local state and not sent to any server other than OpenAI's API via the proxy.
+1.  **APIキーの設定**:
+    - 左下の**設定**アイコン（歯車）をクリックします。
+    - OpenAI APIキーを入力します。キーはブラウザのローカルストレージに安全に保存され、プロキシ経由でOpenAIのAPI以外のサーバーに送信されることはありません。
 
-2.  **Start a Meeting**:
-    - Enter your raw business idea in the text area (e.g., "A smart mirror that teaches you karate").
-    - Click **Start Board Meeting**.
+2.  **ミーティングの開始**:
+    - テキストエリアにビジネスアイデアの原案を入力します（例：「空手を教えるスマートミラー」）。
+    - **Start Board Meeting**（取締役会を開始）をクリックします。
 
-3.  **Review the Output**:
-    - The pipeline will run sequentially.
-    - **Masayoshi Son** creates the 300-year vision.
-    - **Peter Thiel** identifies the contrarian monopoly strategy.
-    - **Steve Jobs** designs the user experience.
-    - **Jeff Bezos** creates the execution plan.
-    - **Warren Buffett** provides the final investment decision.
+3.  **出力の確認**:
+    - パイプラインが順次実行されます。
+    - **孫正義**が300年構想を作成します。
+    - **ピーター・ティール**が逆張りの独占戦略を特定します。
+    - **スティーブ・ジョブズ**がユーザー体験を設計します。
+    - **ジェフ・ベゾス**が実行計画を作成します。
+    - **ウォーレン・バフェット**が最終的な投資判断を下します。
 
-## Tech Stack
-- **Framework**: Next.js 14+ (App Router)
-- **Styling**: Tailwind CSS
-- **Animation**: Framer Motion
-- **Icons**: Lucide React
+## 技術スタック
+- **フレームワーク**: Next.js 14+ (App Router)
+- **スタイリング**: Tailwind CSS
+- **アニメーション**: Framer Motion
+- **アイコン**: Lucide React
 - **Markdown**: react-markdown + @tailwindcss/typography
