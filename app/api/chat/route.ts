@@ -15,6 +15,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json(
+        { error: "Invalid JSON body" },
+        { status: 400 }
+      );
+    }
+
     const { systemPrompt, userContent, apiKey, model } =
       body as Record<string, unknown>;
 
