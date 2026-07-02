@@ -5,21 +5,44 @@ export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
   try {
-    const { systemPrompt, userContent, apiKey, model } = await req.json();
+    let body: unknown;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid JSON body" },
+        { status: 400 }
+      );
+    }
 
-    if (!apiKey) {
+    const { systemPrompt, userContent, apiKey, model } =
+      body as Record<string, unknown>;
+
+    if (typeof apiKey !== "string" || !apiKey.trim()) {
       return NextResponse.json(
         { error: "API Key is required" },
         { status: 401 }
       );
     }
 
+    if (
+      typeof systemPrompt !== "string" ||
+      !systemPrompt.trim() ||
+      typeof userContent !== "string" ||
+      !userContent.trim()
+    ) {
+      return NextResponse.json(
+        { error: "systemPrompt and userContent are required" },
+        { status: 400 }
+      );
+    }
+
     const openai = new OpenAI({
-      apiKey: apiKey,
+      apiKey: apiKey.trim(),
     });
 
     const completion = await openai.chat.completions.create({
-      model: model || "gpt-4o",
+      model: typeof model === "string" && model.trim() ? model : "gpt-4o",
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: userContent },
