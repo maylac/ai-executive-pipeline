@@ -128,6 +128,17 @@ export default function Home() {
       }),
     });
 
+    if (!response.ok) {
+      let message = `Request failed with status ${response.status}`;
+      try {
+        const errorBody = await response.json();
+        if (errorBody?.error) message = errorBody.error;
+      } catch {
+        // Response body wasn't valid JSON; fall back to the default message.
+      }
+      throw new Error(message);
+    }
+
     if (!response.body) return;
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
