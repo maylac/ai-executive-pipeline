@@ -48,14 +48,17 @@ export async function POST(req: NextRequest) {
       apiKey: apiKey.trim(),
     });
 
-    const completion = await openai.chat.completions.create({
-      model: typeof model === "string" && model.trim() ? model : "gpt-4o",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: userContent },
-      ],
-      stream: true,
-    });
+    const completion = await openai.chat.completions.create(
+      {
+        model: typeof model === "string" && model.trim() ? model : "gpt-4o",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userContent },
+        ],
+        stream: true,
+      },
+      { signal: req.signal }
+    );
 
     const stream = new ReadableStream({
       async start(controller) {

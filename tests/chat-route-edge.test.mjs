@@ -64,6 +64,7 @@ test("POST rejects non-object JSON payloads before creating an OpenAI client", a
 test("POST trims the API key and forwards an explicit model", async () => {
   let constructorOptions;
   let createArgs;
+  let createOptions;
 
   class FakeOpenAI {
     constructor(options) {
@@ -72,8 +73,9 @@ test("POST trims the API key and forwards an explicit model", async () => {
 
     chat = {
       completions: {
-        create: async (args) => {
+        create: async (args, options) => {
           createArgs = args;
+          createOptions = options;
           return (async function* streamChunks() {
             yield { choices: [{ delta: { content: "ok" } }] };
           })();
@@ -83,19 +85,19 @@ test("POST trims the API key and forwards an explicit model", async () => {
   }
 
   const { POST } = loadRoute(FakeOpenAI);
-  const response = await POST(
-    jsonRequest({
+  const request = jsonRequest({
       apiKey: "  sk-edge  ",
       systemPrompt: "system",
       userContent: "user",
       model: "gpt-4.1-mini",
-    })
-  );
+    });
+  const response = await POST(request);
 
   assert.equal(response.status, 200);
   assert.equal(await response.text(), "ok");
   assert.equal(constructorOptions.apiKey, "sk-edge");
   assert.equal(createArgs.model, "gpt-4.1-mini");
+  assert.equal(createOptions.signal, request.signal);
 });
 
 test("POST falls back to the default model for blank model input", async () => {
