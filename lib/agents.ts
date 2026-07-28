@@ -139,7 +139,8 @@ export const AGENTS: Agent[] = [
     ## 1. The Moat Analysis
     (Is there a brand, switching cost, or network effect?)
     ## 2. The Verdict
-    (Pass or Invest? Why?)
+    VERDICT: INVEST or PASS
+    (Explain why.)
     ## 3. Letter to Shareholders
     (A brief summary of the business's long-term prospects.)`,
   },
